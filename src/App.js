@@ -1,24 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import Sidebar from './Components/Sidebar/Sidebar';
+import { Routes, Route, Link } from "react-router-dom";
+import Dashboard from './Pages/Dashboard';
+import About from './Pages/About';
+import Comment from './Pages/Comment';
+import Analytics from './Pages/Analytics';
+import Product from './Pages/Product';
+import ProductList from './Pages/ProductList';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Sidebar>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/comment" element={<Comment />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/productList" element={<ProductList />} />
+        </Routes>
+      </Sidebar>
+
+    </>
   );
 }
 
